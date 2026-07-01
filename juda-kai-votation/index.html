@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elección del Judas Kái Royal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="contenedor">
+    <section class="tarjeta">
+
+      <div class="encabezado">
+        <img src="img/royal-logo.png" alt="Royal Seguros" class="logo-royal">
+
+        <h1>Elección del Judas Kái Royal</h1>
+        <p class="subtitulo">Especial San Juan - Royal Seguros S.A.</p>
+      </div>
+
+      <div class="personaje-area">
+        <div class="juda-kai-marco">
+          <img src="img/juda-kai-normal.png" alt="Judas Kái" id="imagenJudaKai" class="juda-kai-img">
+        </div>
+
+        <div class="globo" id="mensajeJudaKai">
+          Bienvenido a la elección del Judas Kái Royal. Ingresá tu correo corporativo para votar.
+        </div>
+      </div>
+
+      <div id="pantallaCorreo" class="pantalla activa">
+        <label for="correoVotante">Tu correo corporativo:</label>
+        <input type="email" id="correoVotante" placeholder="tu.nombre@royalseguros.com.py">
+
+        <button onclick="validarCorreo()">
+          Ingresar a votar
+        </button>
+      </div>
+
+      <div id="pantallaVotacion" class="pantalla">
+        <label for="personaElegida">Elegí al candidato para Judas Kái:</label>
+
+        <select id="personaElegida">
+          <option value="">Selecciona una persona</option>
+        </select>
+
+        <button onclick="prepararVoto()">
+          Elegir candidato
+        </button>
+      </div>
+
+      <div id="pantallaConfirmacion" class="pantalla">
+        <p id="textoConfirmacion" class="texto-confirmacion"></p>
+
+        <div class="botones">
+          <button onclick="confirmarVoto()">
+            Sí, confirmar voto
+          </button>
+
+          <button class="secundario" onclick="volverAElegir()">
+            Volver a elegir
+          </button>
+        </div>
+      </div>
+
+      <div id="pantallaFinal" class="pantalla">
+        <h2>Voto registrado</h2>
+        <p>Tu voto fue guardado correctamente. El muñeco ya tomó nota.</p>
+
+        <button onclick="reiniciarVista()">
+          Finalizar
+        </button>
+      </div>
+
+      <footer>
+        Sistema interno de votación - Royal Seguros S.A.
+      </footer>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
