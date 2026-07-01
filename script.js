@@ -20,7 +20,7 @@ const colaboradores = [
   { nombre: "Cesar Bustamante", correo: "cbustamante@royalseguros.com.py", departamento: "Comercial", categoria: "normal" },
   { nombre: "Cesar Larrea", correo: "clarrea@royalseguros.com.py", departamento: "Comercial", categoria: "normal" },
   { nombre: "Cesar Marsal", correo: "cmarsal@royalseguros.com.py", departamento: "Director", categoria: "autoridad" },
-  { nombre: "Cobradores", correo: "cobradores@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal" },
+  { nombre: "Julio Sanchez", correo: "cobradores@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal" },
   { nombre: "Cristian Cocco", correo: "ccocco@royalseguros.com.py", departamento: "Gerente de Siniestros", categoria: "autoridad" },
   { nombre: "David Melgarejo", correo: "dmelgarejo@royalseguros.com.py", departamento: "Comercial", categoria: "tranquilo" },
   { nombre: "Derlis De la Cruz", correo: "ddelacruz@royalseguros.com.py", departamento: "Gerente de Técnico", categoria: "autoridad" },
@@ -117,7 +117,10 @@ const colaboradores = [
   { nombre: "William Marcial Echeverria", correo: "wecheverria@royalseguros.com.py", departamento: "Comercial", categoria: "normal" },
   { nombre: "Eduardo Morinigo", correo: "emorinigo@royalseguros.com.py", departamento: "Siniestros", categoria: "normal" },
   { nombre: "Gustavo Herrera", correo: "gherrera@royalseguros.com.py", departamento: "Paraguay Asistencia", categoria: "normal" },
-  { nombre: "Marcelo Gomez", correo: "mgomez@royalseguros.com.py", departamento: "Paraguay Asistencia", categoria: "normal" }
+  { nombre: "Marcelo Gomez", correo: "mgomez@royalseguros.com.py", departamento: "Paraguay Asistencia", categoria: "normal" },
+  {nombre: "Gustavo Ozoro", correo: "gozorio@royalsegros.com.py", departamento: "Cobranzas", categoria: "normal"},
+  {nombre: "Fredy Galeano", correo:"fgaleano@royalseguros.com.py", departaento: "Cobranzas", categoria: "normal"},
+  {nombre: "Pablo Almada", correo: "palmada@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal"},
 ];
 
 const dominioCorporativo = "@royalseguros.com.py";
