@@ -125,6 +125,8 @@ const colaboradores = [
 
 const dominioCorporativo = "@royalseguros.com.py";
 
+const URL_GOOGLE_SCRIPT = "https://script.google.com/macros/s/AKfycbxoYn25x2oBWh-0cPQmU0fUiLZa0Fii_4tGqwY_LKB0dXnilamOhSimrMS6A3ZCsDfOgA/exec";
+
 const reaccionesJudaKai = {
   tranquilo: {
     imagen: "img/juda-kai-confundido.png",
@@ -343,25 +345,43 @@ function volverAElegir() {
   cambiarPantalla("pantallaVotacion");
 }
 
-function confirmarVoto() {
+async function confirmarVoto() {
   const persona = colaboradores.find(p => p.correo === candidatoSeleccionado);
 
   const voto = {
     votante: correoVotanteActual,
-    elegido: candidatoSeleccionado,
-    nombreElegido: persona.nombre,
-    departamento: persona.departamento,
-    categoria: persona.categoria,
-    fecha: new Date().toLocaleString()
+    nombreElegido: persona.nombre
   };
 
-  localStorage.setItem(`voto_${correoVotanteActual}`, JSON.stringify(voto));
+  try {
+    cambiarImagenJudaKai("img/juda-kai-sorprendido.png", "sorprendido");
+    decirMensaje("Registrando tu voto... el muñeco está anotando.");
 
-  cambiarImagenJudaKai("img/juda-kai-feliz.png", "feliz");
-  decirMensaje("Voto registrado. El Judas Kái ya tiene un nombre más en la lista.");
-  cambiarPantalla("pantallaFinal");
+    const respuesta = await fetch(URL_GOOGLE_SCRIPT, {
+      method: "POST",
+      body: JSON.stringify(voto)
+    });
 
-  console.log("Voto registrado:", voto);
+    const resultado = await respuesta.json();
+
+    if (resultado.estado === "duplicado") {
+      cambiarImagenJudaKai("img/juda-kai-confundido.png", "confundido");
+      decirMensaje("Este correo ya registró un voto. El muñeco no admite segunda vuelta.");
+      cambiarPantalla("pantallaFinal");
+      return;
+    }
+
+    localStorage.setItem(`voto_${correoVotanteActual}`, JSON.stringify(voto));
+
+    cambiarImagenJudaKai("img/juda-kai-feliz.png", "feliz");
+    decirMensaje("Voto registrado. El Judas Kái ya tiene un nombre más en la lista.");
+    cambiarPantalla("pantallaFinal");
+
+  } catch (error) {
+    console.error("Error al registrar voto:", error);
+    cambiarImagenJudaKai("img/juda-kai-confundido.png", "confundido");
+    decirMensaje("Hubo un problema al registrar el voto. Probá nuevamente.");
+  }
 }
 
 function reiniciarVista() {
