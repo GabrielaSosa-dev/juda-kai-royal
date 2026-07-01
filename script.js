@@ -121,6 +121,7 @@ const colaboradores = [
   {nombre: "Gustavo Ozoro", correo: "gozorio@royalsegros.com.py", departamento: "Cobranzas", categoria: "normal"},
   {nombre: "Fredy Galeano", correo:"fgaleano@royalseguros.com.py", departaento: "Cobranzas", categoria: "normal"},
   {nombre: "Pablo Almada", correo: "palmada@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal"},
+  {nombre: "Rosanita", correo: "rozuna@royalseguros.com.py", departamenso: "Administracion", categoria: "normal"},
 ];
 
 const dominioCorporativo = "@royalseguros.com.py";
