@@ -20,7 +20,7 @@ const colaboradores = [
   { nombre: "Cesar Bustamante", correo: "cbustamante@royalseguros.com.py", departamento: "Comercial", categoria: "normal" },
   { nombre: "Cesar Larrea", correo: "clarrea@royalseguros.com.py", departamento: "Comercial", categoria: "normal" },
   { nombre: "Cesar Marsal", correo: "cmarsal@royalseguros.com.py", departamento: "Director", categoria: "autoridad" },
-  { nombre: "Julio Sanchez", correo: "cobradores@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal" },
+  { nombre: "Cobradores", correo: "cobradores@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal" },
   { nombre: "Cristian Cocco", correo: "ccocco@royalseguros.com.py", departamento: "Gerente de Siniestros", categoria: "autoridad" },
   { nombre: "David Melgarejo", correo: "dmelgarejo@royalseguros.com.py", departamento: "Comercial", categoria: "tranquilo" },
   { nombre: "Derlis De la Cruz", correo: "ddelacruz@royalseguros.com.py", departamento: "Gerente de Técnico", categoria: "autoridad" },
@@ -78,7 +78,7 @@ const colaboradores = [
   { nombre: "Marcelo Sebastian Villalba", correo: "svillalba@royalseguros.com.py", departamento: "Tesorería", categoria: "normal" },
   { nombre: "Maria Del Mar Lopez Moreira", correo: "mlopezmoreira@royalseguros.com.py", departamento: "Gerente de Marketing", categoria: "normal" },
   { nombre: "Maria Lujan Orrego", correo: "mlorrego@royalseguros.com.py", departamento: "Caución", categoria: "normal" },
-  { nombre: "Maria Parra", correo: "mparra@royalseguros.com.py", departamento: "Jefa de contabilidad", categoria: "autoridad" },
+  { nombre: "Maria Parra", correo: "mparra@royalseguros.com.py", departamento: "Jefa de contabilidad", categoria: "normal" },
   { nombre: "Mariano Segovia", correo: "msegovia@royalseguros.com.py", departamento: "Técnico", categoria: "normal" },
   { nombre: "Marta Zarza", correo: "mzarza@royalseguros.com.py", departamento: "Jefa de Tecnico", categoria: "autoridad" },
   { nombre: "Mathias Bustos", correo: "mbustos@royalseguros.com.py", departamento: "Siniestros", categoria: "normal" },
@@ -117,10 +117,7 @@ const colaboradores = [
   { nombre: "William Marcial Echeverria", correo: "wecheverria@royalseguros.com.py", departamento: "Comercial", categoria: "normal" },
   { nombre: "Eduardo Morinigo", correo: "emorinigo@royalseguros.com.py", departamento: "Siniestros", categoria: "normal" },
   { nombre: "Gustavo Herrera", correo: "gherrera@royalseguros.com.py", departamento: "Paraguay Asistencia", categoria: "normal" },
-  { nombre: "Marcelo Gomez", correo: "mgomez@royalseguros.com.py", departamento: "Paraguay Asistencia", categoria: "normal" },
-  { nombre: "Fredy Galeano", correo: "fgaleano@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal"},
-  { nombre: "Gustavo Ozorio", correo: "gozorio@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal"},
-  { nombre: "Pablo Almada", correo: "palmada@royalseguros.com.py", departamento: "Cobranzas", categoria: "normal"},
+  { nombre: "Marcelo Gomez", correo: "mgomez@royalseguros.com.py", departamento: "Paraguay Asistencia", categoria: "normal" }
 ];
 
 const dominioCorporativo = "@royalseguros.com.py";
@@ -146,26 +143,26 @@ const reaccionesJudaKai = {
   },
 
   autoridad: {
-  imagen: "img/juda-kai-sorprendido.png",
-  clase: "sorprendido",
-  mensajes: [
-    "¡Epa! Este voto viene con firma importante.",
-    "Mirá vos... fuiste directo por un peso pesado de la oficina.",
-    "El Judas Kái levantó las cejas con esta elección.",
-    "Voto de alto nivel detectado. Esto se puso interesante.",
-    "Esta nominación viene con cargo incluido.",
-    "El muñeco quedó sorprendido... pero anota igual.",
-    "Fuerte elección. Se nota que viniste a votar sin miedo al chisme.",
-    "Este nombre tiene jerarquía... y ahora también un voto.",
-    "San Juan se puso elegante con esta nominación.",
-    "El Judas Kái no esperaba ir tan arriba en el organigrama.",
-    "Voto importante. El muñeco ya lo puso en observación.",
-    "Esta elección tiene energía de reunión directiva, pero con humor.",
-    "No cualquiera se anima a votar así... interesante.",
-    "Este candidato entró con presencia propia.",
-    "El muñeco quedó con cara de 'apa la papa'."
-  ]
-},
+    imagen: "img/juda-kai-sorprendido.png",
+    clase: "sorprendido",
+    mensajes: [
+      "¡Epa! Este voto viene con firma importante.",
+      "Mirá vos... fuiste directo por un peso pesado de la oficina.",
+      "El Judas Kái levantó las cejas con esta elección.",
+      "Voto de alto nivel detectado. Esto se puso interesante.",
+      "Esta nominación viene con cargo incluido.",
+      "El muñeco quedó sorprendido... pero anota igual.",
+      "Fuerte elección. Se nota que viniste a votar sin miedo al chisme.",
+      "Este nombre tiene jerarquía... y ahora también un voto.",
+      "San Juan se puso elegante con esta nominación.",
+      "El Judas Kái no esperaba ir tan arriba en el organigrama.",
+      "Voto importante. El muñeco ya lo puso en observación.",
+      "Esta elección tiene energía de reunión directiva, pero con humor.",
+      "No cualquiera se anima a votar así... interesante.",
+      "Este candidato entró con presencia propia.",
+      "El muñeco quedó con cara de 'apa la papa'."
+    ]
+  },
 
   popular: {
     imagen: "img/juda-kai-feliz.png",
@@ -305,8 +302,8 @@ function validarCorreo() {
   const yaVoto = localStorage.getItem(`voto_${correo}`);
 
   if (yaVoto) {
-    cambiarImagenJudaKai("img/juda-kai-asustado.png", "asustado");
-    decirMensaje("Ya votaste. El Judas Kái acepta una sola acusación por persona.");
+    cambiarImagenJudaKai("img/juda-kai-confundido.png", "confundido");
+    decirMensaje("Ya registraste tu voto. El muñeco no admite segunda vuelta.");
     cambiarPantalla("pantallaFinal");
     return;
   }
@@ -357,19 +354,11 @@ async function confirmarVoto() {
     cambiarImagenJudaKai("img/juda-kai-sorprendido.png", "sorprendido");
     decirMensaje("Registrando tu voto... el muñeco está anotando.");
 
-    const respuesta = await fetch(URL_GOOGLE_SCRIPT, {
+    await fetch(URL_GOOGLE_SCRIPT, {
       method: "POST",
+      mode: "no-cors",
       body: JSON.stringify(voto)
     });
-
-    const resultado = await respuesta.json();
-
-    if (resultado.estado === "duplicado") {
-      cambiarImagenJudaKai("img/juda-kai-confundido.png", "confundido");
-      decirMensaje("Este correo ya registró un voto. El muñeco no admite segunda vuelta.");
-      cambiarPantalla("pantallaFinal");
-      return;
-    }
 
     localStorage.setItem(`voto_${correoVotanteActual}`, JSON.stringify(voto));
 
